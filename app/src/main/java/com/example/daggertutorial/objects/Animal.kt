@@ -5,10 +5,11 @@ import javax.inject.Inject
 
 private const val TAG = "Animal"
 
-class Animal @Inject constructor(hands: Hands, legs: Legs) {
+class Animal @Inject constructor(private val hands: Hands, private val legs: Legs, private val owner: Owner) {
 
     fun run() {
         Log.d(TAG, "$this is running...")
+        Log.d(TAG, "Owner: $owner")
     }
 
     @Inject
