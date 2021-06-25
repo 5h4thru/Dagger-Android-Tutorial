@@ -17,12 +17,12 @@ class VeganDiet @Inject constructor() : Diet {
     }
 }
 
-class MeatDiet @Inject constructor() : Diet {
+class MeatDiet @Inject constructor(private val maxCalories: Int) : Diet {
     override fun name(): String {
         return "Meat Diet"
     }
 
     override fun calories(): Int {
-        return 650
+        return maxCalories
     }
 }
