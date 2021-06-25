@@ -30,7 +30,7 @@ class MeatDietModule constructor(private val maxCalories: Int) {
     // abstract fun bindDiet(meatDiet: MeatDiet): Diet
 
     @Provides
-    fun provideMeatDit(): Diet {
+    fun provideMeatDiet(): Diet {
         return MeatDiet(maxCalories)
     }
 }
