@@ -25,6 +25,7 @@ class MainActivity : AppCompatActivity() {
         val animalComponent: AnimalComponent =
             DaggerAnimalComponent.builder()
                 .maxCalories(250)
+                .minCalories(100)
                 .build()
         // Option 2: Inject this class into Dagger component to let Dagger inject all member variables and methods
         animalComponent.inject(this)

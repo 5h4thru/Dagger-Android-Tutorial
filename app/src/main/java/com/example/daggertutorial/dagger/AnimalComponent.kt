@@ -7,6 +7,7 @@ import com.example.daggertutorial.dagger.modules.VeganDietModule
 import com.example.daggertutorial.objects.Animal
 import dagger.BindsInstance
 import dagger.Component
+import javax.inject.Named
 
 @Component(modules = [OwnerModule::class, HandsModule::class, VeganDietModule::class])
 interface AnimalComponent {
@@ -30,8 +31,17 @@ interface AnimalComponent {
      */
     @Component.Builder
     interface Builder {
+        /**
+         * If we want to @BindsInstance multiple methods that return the same type we need to use @Named annotation to differentiate between them.
+         * Dagger by default doesn't know which type to be used where.
+         * Failure to do that will result in error:
+         * error: [Dagger/DuplicateBindings] java.lang.Integer is bound multiple times:
+         */
         @BindsInstance
-        fun maxCalories(calories: Int): Builder
+        fun maxCalories(@Named("maxCalories") calories: Int): Builder
+
+        @BindsInstance
+        fun minCalories(@Named("minCalories") calories: Int): Builder
 
         fun build(): AnimalComponent
     }
