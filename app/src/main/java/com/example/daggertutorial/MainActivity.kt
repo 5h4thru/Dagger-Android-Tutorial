@@ -4,7 +4,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.daggertutorial.dagger.AnimalComponent
 import com.example.daggertutorial.dagger.DaggerAnimalComponent
-import com.example.daggertutorial.dagger.modules.MeatDietModule
 import com.example.daggertutorial.objects.Animal
 import javax.inject.Inject
 
@@ -25,7 +24,7 @@ class MainActivity : AppCompatActivity() {
          */
         val animalComponent: AnimalComponent =
             DaggerAnimalComponent.builder()
-                .meatDietModule(MeatDietModule(maxCalories = 800))
+                .maxCalories(250)
                 .build()
         // Option 2: Inject this class into Dagger component to let Dagger inject all member variables and methods
         animalComponent.inject(this)

@@ -7,13 +7,13 @@ interface Diet {
     fun calories(): Int
 }
 
-class VeganDiet @Inject constructor() : Diet {
+class VeganDiet @Inject constructor(private val maxCalories: Int) : Diet {
     override fun name(): String {
         return "Vegan Diet"
     }
 
     override fun calories(): Int {
-        return 250
+        return maxCalories
     }
 }
 

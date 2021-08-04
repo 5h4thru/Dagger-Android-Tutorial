@@ -5,7 +5,7 @@ import javax.inject.Inject
 
 private const val TAG = "Animal"
 
-class Animal @Inject constructor(private val hands: Hands, private val legs: Legs, private val owner: Owner, private val diet: Diet) {
+class Animal @Inject constructor(private val owner: Owner, private val diet: Diet) {
 
     fun run() {
         Log.d(TAG, "${this.javaClass.simpleName} is running...")
